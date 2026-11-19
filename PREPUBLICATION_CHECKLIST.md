@@ -9,14 +9,17 @@
 - [x] Model weights/checkpoints and raw benchmark images excluded.
 - [x] SHA-256 manifest generated and release verification passed locally.
 - [x] Portable selector unit tests passed locally.
-- [ ] Upload the full preview directory to this GitHub repository.
+- [x] Public preview ZIP uploaded to the new GitHub repository.
+- [x] Uploaded ZIP byte identity checked against the local archive using the Git blob SHA-1.
+- [x] ZIP CRC check and the bundled `scripts/verify_release.py` passed locally.
 - [ ] Confirm all coauthors approve public distribution of the included derived data.
-- [ ] Run GitHub secret scanning after upload.
-- [ ] Create a versioned release after the authors' final review; then archive that exact release to Zenodo if a DOI is desired.
+- [ ] Run GitHub secret scanning and manually review its results.
+- [ ] Create a versioned GitHub release after the authors' final review; then archive that exact release to Zenodo if a DOI is desired.
 
 ## Deferred items
 
 Exact full split manifests, additional ImageNet-100 seed records, expanded
 historical run-to-source traceability, and file-level third-party source
 license review are deferred and described in
-`docs/OPEN_ITEMS_AND_LIMITATIONS.md`. They must not be described as completed.
+`docs/OPEN_ITEMS_AND_LIMITATIONS.md` inside the ZIP archive. They must not be
+described as completed.
