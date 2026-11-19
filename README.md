@@ -39,7 +39,7 @@ The package includes:
 - separate post-submission C60 revision prediction arrays and metadata;
 - Adapter Night7 three-seed summaries and external prediction-inventory
   metadata;
-- selection-rule, implementation, code-provenance, and data-provenance audits.
+- selection-rule, implementation, code-provenance, and data-provenance audits. A clarification of the legacy code-provenance index is available in [docs/CODE_PROVENANCE_INDEX_CLARIFICATION.md](docs/CODE_PROVENANCE_INDEX_CLARIFICATION.md); the `public_path` column in the archived CSV refers to excluded internal candidate files, not files distributed in the ZIP.
 
 This is a research reproducibility preview, not a turnkey clean-room recreation
 of every historical training run. The original trained checkpoints were lost
