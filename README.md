@@ -102,3 +102,31 @@ Citation metadata are provided in `CITATION.cff`. This repository currently
 contains a public preview commit, not a DOI-backed archival release. A
 versioned GitHub release and an archival DOI may be added after coauthor
 approval and the remaining publication checks.
+
+
+## Browse the core source directly
+
+The formal AAEC coefficient selector is now directly viewable in this
+repository; downloading the ZIP is not required to inspect the core selector
+or its unit tests.
+
+- [Portable AAEC selector](src/aaec/selection.py)
+- [Selector unit tests](tests/test_selection.py)
+- [Lightweight dependencies](requirements-analysis.txt)
+- [Code browsing and test instructions](docs/CODE_BROWSING.md)
+- [Source-to-archive SHA-256 manifest](CODE_MIRROR_MANIFEST.csv)
+- [Local ZIP security-scan report](docs/LOCAL_SECRET_SCAN_20261120.md)
+
+Run the selector tests from the repository root:
+
+```bash
+python -m pip install -r requirements-analysis.txt
+PYTHONPATH=src python -m pytest -q tests/test_selection.py
+```
+
+The directly browsable selector files are byte-for-byte mirrors of the
+corresponding files in the archived preview ZIP. Figure-generation scripts,
+figure-data CSVs, processed experimental records, and the wider provenance
+materials remain in the ZIP. This selective release does not claim to recover
+the historical training runner or provide a complete clean-room rerun of all
+training experiments.
