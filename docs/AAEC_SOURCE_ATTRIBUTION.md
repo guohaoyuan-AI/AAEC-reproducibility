@@ -27,3 +27,20 @@ documented in docs/TRAINING_CODE.md.
 
 LoRA/DoRA code is not extracted from this repository because it is not present
 in its public tree. No internal runtime snapshot is redistributed here.
+
+## LoRA/DoRA method-note provenance
+
+The explanatory note in docs/PEFT_METHODS_LORA_DORA.md is based on the
+project's recovered implementation file
+src/tasfd/models/peft/lora_dora.py (SHA-256:
+94742c742e33a9032dc5f46b9a4450a7ea6d13ede945b7db3ad6ba3358dba111)
+and the recovered historical ViT-S/16 CIFAR-100 configurations
+vits16_cifar100_lora_seed43.yaml and
+vits16_cifar100_dora_seed43.yaml.
+
+The method note summarizes the mathematical operations and implementation
+semantics for documentation and traceability. It does not copy the LoRA/DoRA
+runtime source into this repository. No LoRA/DoRA runner, configuration,
+checkpoint, weight, or experiment result is added by this documentation
+change. The public runnable training-source extraction remains limited to
+Adapter, SSF, and LayerNorm tuning.

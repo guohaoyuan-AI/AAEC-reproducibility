@@ -20,11 +20,13 @@ run the five-point Bicubic/Bilinear validation sweep, select alpha using the
 current per-view grid-best joint rule, and evaluate the selected alpha and
 alpha=1 on held-out interpolation views.
 
-**LoRA and DoRA are not present in the referenced public AAEC repository and
-are not included in this extraction.** Recovered LoRA/DoRA runtime snapshots
-exist in separate internal archives, but they are excluded pending a
-file-level rights and notice review. Do not describe this three-method
-extraction as a complete five-method source release.
+LoRA and DoRA are not present in the referenced public AAEC repository and
+are not part of this runnable source extraction. The repository separately
+provides [LoRA/DoRA method documentation](PEFT_METHODS_LORA_DORA.md), based
+on the project's recovered method implementation and historical
+configurations. That document is explanatory only: it does not add LoRA/DoRA
+source code, runners, configurations, or checkpoints. Do not describe this
+three-method extraction as a complete five-method source release.
 
 ## Install
 
