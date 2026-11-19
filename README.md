@@ -89,7 +89,9 @@ python AAEC_public_release_candidate_20261119/scripts/verify_release.py
 
 ## Licensing
 
-- Original AAEC software: MIT (`LICENSE`).
+- Portable selector and figure-generation software: MIT (`LICENSE`).
+- Extracted training modules, runners, and configurations: Apache-2.0
+  (`licenses/AAEC-APACHE-2.0.txt`).
 - Author-created derived research records and figure data: CC BY 4.0
   (`DATA_LICENSE`).
 - Third-party datasets, pretrained weights, and excluded external source

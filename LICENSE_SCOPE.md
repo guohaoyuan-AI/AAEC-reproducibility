@@ -2,9 +2,9 @@
 
 This repository uses a dual-license policy, with explicit exclusions.
 
-- **MIT (`LICENSE`)** applies to original AAEC-authored software included in
-  `src/aaec/` and `code/figure_generation/`, plus repository-authored utility
-  scripts and documentation where applicable.
+- **MIT (`LICENSE`)** applies to `src/aaec/selection.py`,
+  `src/aaec/__init__.py`, `code/figure_generation/`, and repository-authored
+  utility scripts/documentation unless a more specific notice applies.
 - **CC BY 4.0 (`DATA_LICENSE`)** applies to author-created derived data,
   processed tables, figure inputs, and author-created manifests, unless a
   file-specific notice says otherwise.

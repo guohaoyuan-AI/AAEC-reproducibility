@@ -43,11 +43,14 @@ the formal five-point protocol.
 
 ## 4. Third-party code attribution — deferred by exclusion
 
-Recovered `tasfd` and C60 runtime source snapshots have been excluded from this
-public preview because complete upstream license/notice provenance has not
-been established. They are not covered by this repository's MIT license.
-The portable selector and figure-generation code are included. A later release
-may add further recovered code after source-by-source rights and attribution review.
+Recovered internal `tasfd` foundation/runtime and C60 training/evaluation
+snapshots remain excluded because complete upstream license/notice provenance
+has not been established. They are not covered by this repository's MIT
+license. Separately, the repository tree now includes the public AAEC source
+extraction for Adapter, SSF, and LayerNorm tuning under Apache-2.0, with its
+license preserved in `licenses/AAEC-APACHE-2.0.txt`. The standalone selector
+and CLI use the current per-view grid-best rule. LoRA/DoRA source remains
+excluded pending source-by-source rights and attribution review.
 
 ## Evidence classes that must not be conflated
 
