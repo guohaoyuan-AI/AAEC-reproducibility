@@ -87,6 +87,10 @@ Then extract the archive and run:
 python AAEC_public_release_candidate_20261119/scripts/verify_release.py
 ```
 
+## Security review
+
+GitHub Secret Protection and Push Protection are enabled. The repository owner confirmed that the Secret scanning alerts page showed no warnings on 2026-11-20. A local heuristic scan of the public preview ZIP also found no common credential patterns. Scope and limitations are documented in [docs/SECURITY_REVIEW_20261120.md](docs/SECURITY_REVIEW_20261120.md).
+
 ## Licensing
 
 - Original AAEC software: MIT (`LICENSE`).

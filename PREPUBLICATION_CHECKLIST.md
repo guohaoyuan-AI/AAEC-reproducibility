@@ -14,7 +14,8 @@
 - [x] ZIP CRC check and the bundled `scripts/verify_release.py` passed locally.
 - [x] Confirm all coauthors approve public distribution of the included derived data (author confirmation received on 2026-11-20).
 - [x] Run a local heuristic credential scan on the uploaded ZIP; no known provider-token, private-key, generic credential-assignment, or embedded-credential URL patterns were detected (see `docs/LOCAL_SECRET_SCAN_20261120.md`).
-- [ ] Review GitHub Secret Scanning alerts (default and generic) and confirm the repository's full-history scan status; local scanning is not a substitute.
+- [x] Review GitHub Secret Scanning alerts; the author confirmed no alerts on 2026-11-20. Secret Protection is enabled and Push Protection is On (see `docs/SECURITY_REVIEW_20261120.md`).
+- [ ] Independently confirm the exact historical-commit and branch scan coverage reported by GitHub; the available screenshot confirms the current alert state, not a full coverage report.
 - [ ] Create a versioned GitHub release after the authors' final review; then archive that exact release to Zenodo if a DOI is desired.
 
 ## Deferred items
