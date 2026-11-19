@@ -19,12 +19,12 @@ The complete preview bundle is stored as a ZIP archive in this repository:
 - NPZ prediction archives: 145
 - NPY split-index arrays: 2
 - Model-weight files: none detected
-- SHA-256: `64881aabcc8bf7d5c34df6765201aa9581474bdde466500f12b1ca1f3855ebd5`
+- SHA-256: 64881aabcc8bf7d5c34df6765201aa9581474bdde466500f12b1ca1f3855ebd5
 
 The archive contains the release directory
-`AAEC_public_release_candidate_20261119/`. Download and extract the ZIP to
+AAEC_public_release_candidate_20261119/. Download and extract the ZIP to
 browse the source, data, documentation, and figures. The archive's
-`SHA256SUMS.csv` and `scripts/verify_release.py` provide file-level integrity
+SHA256SUMS.csv and scripts/verify_release.py provide file-level integrity
 and content checks. The uploaded GitHub object was verified to match the local
 archive byte-for-byte using its Git blob SHA-1.
 
@@ -61,44 +61,66 @@ The package documents deferred provenance items, including complete split
 manifests for all original datasets, additional ImageNet-100 seed-43/44
 formal records, and source-by-source third-party license review. Do not infer
 that these items have been completed. See
-`AAEC_public_release_candidate_20261119/docs/OPEN_ITEMS_AND_LIMITATIONS.md`
+AAEC_public_release_candidate_20261119/docs/OPEN_ITEMS_AND_LIMITATIONS.md
 inside the archive.
 
 ## Reproduction and verification
 
-After extracting the archive, follow its `README.md`. The portable selector
+After extracting the archive, follow its README.md. The portable selector
 tests and figure regeneration instructions are documented there.
 
 To verify the archive itself:
 
-```bash
-sha256sum AAEC_reproducibility_public_preview_0.1.0-rc1_20261119_FIXED.zip
-```
+    sha256sum AAEC_reproducibility_public_preview_0.1.0-rc1_20261119_FIXED.zip
 
 Expected SHA-256:
 
-```
-64881aabcc8bf7d5c34df6765201aa9581474bdde466500f12b1ca1f3855ebd5
-```
+    64881aabcc8bf7d5c34df6765201aa9581474bdde466500f12b1ca1f3855ebd5
 
 Then extract the archive and run:
 
-```bash
-python AAEC_public_release_candidate_20261119/scripts/verify_release.py
-```
+    python AAEC_public_release_candidate_20261119/scripts/verify_release.py
 
 ## Licensing
 
-- Original AAEC software: MIT (`LICENSE`).
+- Portable selector and figure-generation software: MIT (LICENSE).
+- Extracted training modules, runners, and configurations: Apache-2.0
+  (licenses/AAEC-APACHE-2.0.txt).
 - Author-created derived research records and figure data: CC BY 4.0
-  (`DATA_LICENSE`).
+  (DATA_LICENSE).
 - Third-party datasets, pretrained weights, and excluded external source
-  snapshots are not relicensed. See `LICENSE_SCOPE.md` and the archive's
+  snapshots are not relicensed. See LICENSE_SCOPE.md and the archive's
   provenance documents.
 
 ## Citation
 
-Citation metadata are provided in `CITATION.cff`. This repository currently
+Citation metadata are provided in CITATION.cff. This repository currently
 contains a public preview commit, not a DOI-backed archival release. A
 versioned GitHub release and an archival DOI may be added after coauthor
 approval and the remaining publication checks.
+
+## Training source and PEFT method notes
+
+The repository exposes the training source recovered from the public AAEC
+reference repository. It includes the residual Adapter, SSF, and
+LayerNorm-tuning runners, shared ViT/data/evaluation modules, 30 YAML
+configurations, and an independently runnable formal selector.
+
+Start with [docs/TRAINING_CODE.md](docs/TRAINING_CODE.md).
+
+### LoRA and DoRA method documentation
+
+[docs/PEFT_METHODS_LORA_DORA.md](docs/PEFT_METHODS_LORA_DORA.md) documents the
+core LoRA and DoRA formulations and the implementation semantics recovered
+from the project's historical source. It distinguishes the low-rank update
+in LoRA from DoRA's direction-plus-magnitude decomposition, and explains the
+project implementation's endpoint interpolation semantics.
+
+This is explanatory documentation only. It does not add runnable LoRA/DoRA
+source code, runners, configurations, checkpoints, or weights. The public
+training-source extraction therefore remains three runnable methods; this
+repository must not be described as a five-method executable implementation
+or a complete five-method clean-room reproduction.
+
+The ZIP preview remains the frozen research-data/figure package described
+above; the training source is exposed as ordinary repository files.

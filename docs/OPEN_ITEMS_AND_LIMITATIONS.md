@@ -20,7 +20,7 @@ The original evidence package has a limited ImageNet-100 pilot scope. This
 public preview does not claim complete seed-43/44 formal validation-selection
 records for the original cohort. Do not infer multi-seed ImageNet-100
 generalization from incomplete records. See the primary data report and
-`docs/DATA_PROVENANCE_AND_EVIDENCE_HIERARCHY.md`.
+docs/DATA_PROVENANCE_AND_EVIDENCE_HIERARCHY.md.
 
 ## 3. Selection-rule and paper-table consistency — audit evidence included
 
@@ -34,20 +34,30 @@ from local per-image predictions because the raw NPZ bytes are absent. These
 limitations remain part of the evidence boundary; this release does not claim
 that every historical runner was re-executed or byte-identically recovered.
 
-The formal five-point grid is `{0.2, 0.4, 0.6, 0.8, 1.0}`. The documented
+The formal five-point grid is {0.2, 0.4, 0.6, 0.8, 1.0}. The documented
 formal rule uses each clean validation view's own grid-best reference, requires
 joint feasibility on Bicubic and Bilinear, and selects the smallest feasible
 coefficient; alpha=1 is the fallback only when the joint feasible set is empty.
 The nine-point grid is validation-only sensitivity evidence and does not alter
 the formal five-point protocol.
 
-## 4. Third-party code attribution — deferred by exclusion
+## 4. Third-party code attribution and PEFT method documentation
 
-Recovered `tasfd` and C60 runtime source snapshots have been excluded from this
-public preview because complete upstream license/notice provenance has not
-been established. They are not covered by this repository's MIT license.
-The portable selector and figure-generation code are included. A later release
-may add further recovered code after source-by-source rights and attribution review.
+Recovered internal tasfd foundation/runtime and C60 training/evaluation
+snapshots remain excluded because complete upstream license/notice provenance
+has not been established. They are not covered by this repository's MIT
+license. Separately, the repository tree includes the public AAEC source
+extraction for Adapter, SSF, and LayerNorm tuning under Apache-2.0, with its
+license preserved in licenses/AAEC-APACHE-2.0.txt. The standalone selector
+and CLI use the current per-view grid-best rule.
+
+A descriptive LoRA/DoRA method note is now included at
+docs/PEFT_METHODS_LORA_DORA.md. It summarizes the recovered project method
+implementation and historical configuration semantics for documentation and
+traceability only. The LoRA/DoRA runtime source, training runner, configurations,
+checkpoints, and weights are not included in this public source extraction.
+The method note must not be interpreted as runnable LoRA/DoRA support or as
+evidence that the repository contains all five PEFT implementations.
 
 ## Evidence classes that must not be conflated
 

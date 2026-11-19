@@ -1,0 +1,79 @@
+project:
+  name: AAEC-vit_b16-ssf-imagenet100
+  output_root: outputs/vit_b16/imagenet100
+  save_weights: true
+seed: 42
+deterministic: false
+dataset:
+  name: ImageNet100
+  root: ${AAEC_DATA_ROOT}/imagenet100
+  image_size: 224
+  train_interpolation: bicubic
+  val_interpolations:
+  - bicubic
+  - bilinear
+  test_interpolations:
+  - bicubic
+  - bilinear
+  - nearest
+  val_ratio: 0.1
+  stratified_split: true
+  download: false
+  num_workers: 4
+backbone:
+  name: vit_base_patch16_224.augreg_in21k_ft_in1k
+  pretrained: false
+  checkpoint_path: ${AAEC_PRETRAINED_ROOT}/vit_base_patch16_224_augreg_in21k_ft_in1k/model.safetensors
+  num_classes: 100
+method:
+  name: ssf_adi_v2
+  peft_type: ssf
+  ssf_targets:
+  - norm1
+  - norm2
+  ssf_final_norm: false
+train:
+  peft_epochs: 15
+  batch_size: 64
+  optimizer: adamw
+  lr_head: 0.001
+  lr_peft: 0.001
+  weight_decay: 0.05
+  adamw_betas:
+  - 0.9
+  - 0.999
+  adamw_eps: 1.0e-08
+  scheduler: cosine
+  amp: false
+  grad_clip_norm: 1.0
+  loss: cross_entropy
+  label_smoothing: 0.0
+delta_interpolation:
+  enabled: true
+  alpha_candidates:
+  - 0.2
+  - 0.4
+  - 0.6
+  - 0.8
+  - 1.0
+  selection_rule: formal_alpha1_per_view_smallest_admissible
+  selection_reference: alpha1_validation_per_view
+  epsilon_pp: 0.5
+  strict_epsilon_pp: 0.3
+  heldout_interpolation: nearest
+metrics:
+  feature_layer: final_norm_tokens
+  spatial_size:
+  - 14
+  - 14
+  reference: frozen_backbone_same_interpolation
+  compute_lfer: true
+  compute_cka: true
+  compute_specdist: true
+  compute_high_specdist: true
+  freq_cutoff_ratio: 0.35
+protocol:
+  checkpoint_selection_rule: final_checkpoint_only_after_training
+  nearest_used_for_alpha_selection: 0
+  corruption_used_for_alpha_selection: 0
+  global_coefficient: true
