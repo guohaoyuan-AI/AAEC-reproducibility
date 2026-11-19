@@ -12,7 +12,7 @@
 - [x] Public preview ZIP uploaded to the new GitHub repository.
 - [x] Uploaded ZIP byte identity checked against the local archive using the Git blob SHA-1.
 - [x] ZIP CRC check and the bundled `scripts/verify_release.py` passed locally.
-- [ ] Confirm all coauthors approve public distribution of the included derived data.
+- [x] Confirm all coauthors approve public distribution of the included derived data (author confirmation received on 2026-11-20).
 - [ ] Run GitHub secret scanning and manually review its results.
 - [ ] Create a versioned GitHub release after the authors' final review; then archive that exact release to Zenodo if a DOI is desired.
 
