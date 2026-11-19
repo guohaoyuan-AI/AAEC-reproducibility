@@ -23,8 +23,8 @@ object is byte-identical to the local archive.
 - Recognized model-weight files: 0
 - ZIP CRC/integrity test: PASS
 - Bundled `scripts/verify_release.py`: PASS
-- SHA-256 manifest entries: 821 data files plus the manifest's own header
-  (the manifest does not hash itself)
+- SHA-256 manifest entries: 821 files (all package files except
+  `SHA256SUMS.csv` itself); the archive contains 822 files total.
 
 The bundled verifier checked the file hashes in `SHA256SUMS.csv`, inspected
 NPZ files with `allow_pickle=False`, required prediction-oriented arrays,
