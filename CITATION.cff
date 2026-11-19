@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Please cite the AAEC manuscript when using this software or its processed research records."
+title: "Anchor-Aware Effect Calibration for Validation-Constrained PEFT Deployment under Controlled Distribution Shifts"
+type: software
+version: "0.1.0-rc1"
+date-released: "2026-11-19"
+# This repository uses file-scoped licenses; see LICENSE and DATA_LICENSE.
+license: NOASSERTION
+authors:
+  - family-names: Guo
+    given-names: Haoyuan
+    orcid: "https://orcid.org/0009-0008-5303-3128"
+  - family-names: Hui
+    given-names: Baofeng
+    orcid: "https://orcid.org/0009-0002-1627-3743"
+  - family-names: Ma
+    given-names: Haohan
+  - family-names: Niu
+    given-names: Guohui
+abstract: >-
+  Code, processed research records, and figure-generation materials for
+  Anchor-Aware Effect Calibration (AAEC), a validation-constrained post-training
+  calibration method for parameter-efficient vision transformer deployment.
+keywords:
+  - parameter-efficient fine-tuning
+  - vision transformer
+  - validation-constrained calibration
+  - distribution shift
