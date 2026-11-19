@@ -1,3 +1,10 @@
+> **Repository population status (2026-11-19):** The project metadata, licensing
+> notices, and release-limitations documents have been added. The full 0.1.0-rc1
+> archive (source files, CSV/JSON records, NPZ prediction arrays, and figures)
+> has **not yet been uploaded**. This repository is not a complete reproducibility
+> release until the remaining files are committed and the checksum manifest is
+> verified against the uploaded tree.
+
 # Anchor-Aware Effect Calibration (AAEC)
 
 **Public reproducibility preview — 0.1.0-rc1 (2026-11-19)**
