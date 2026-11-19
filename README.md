@@ -102,3 +102,24 @@ Citation metadata are provided in `CITATION.cff`. This repository currently
 contains a public preview commit, not a DOI-backed archival release. A
 versioned GitHub release and an archival DOI may be added after coauthor
 approval and the remaining publication checks.
+
+
+## Training source (three formal methods)
+
+This repository now also exposes the training source recovered from the
+public AAEC reference repository. It includes the residual Adapter, SSF, and
+LayerNorm-tuning runners, shared ViT/data/evaluation modules, 30 YAML
+configurations, and an independently runnable formal selector.
+
+Start with docs/TRAINING_CODE.md. The extracted runners were adapted to call
+the current per-view grid-best joint selector; the older alpha=1-reference
+selector from the source repository is not used.
+
+**Scope limitation:** LoRA and DoRA are not present in the referenced public
+AAEC repository and are not included. Their separate recovered runtime source
+snapshots remain excluded pending rights review. This repository must not yet
+be described as containing all five PEFT implementations or as a complete
+five-method clean-room reproduction.
+
+The ZIP preview remains the frozen research-data/figure package described
+above; the training source is exposed as ordinary repository files.

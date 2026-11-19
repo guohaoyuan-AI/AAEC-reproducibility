@@ -1,0 +1,82 @@
+project:
+  name: AAEC-vit_s16-adapter-cifar100
+  output_root: outputs/vit_s16/cifar100
+  save_weights: true
+seed: 44
+deterministic: false
+dataset:
+  name: CIFAR100
+  root: ${AAEC_DATA_ROOT}/cifar100
+  image_size: 224
+  train_interpolation: bicubic
+  val_interpolations:
+  - bicubic
+  - bilinear
+  test_interpolations:
+  - bicubic
+  - bilinear
+  - nearest
+  val_ratio: 0.1
+  stratified_split: true
+  download: false
+  num_workers: 4
+backbone:
+  name: vit_small_patch16_224.augreg_in21k_ft_in1k
+  pretrained: false
+  checkpoint_path: ${AAEC_PRETRAINED_ROOT}/vit_small_patch16_224_augreg_in21k_ft_in1k/model.safetensors
+  num_classes: 100
+method:
+  name: adapter_all_b32_adi_v2
+  peft_type: residual_adapter
+  adapter_location: post_block
+  adapter_layers: all
+  adapter_bottleneck_dim: 32
+  adapter_dropout: 0.0
+  adapter_init_std: 0.001
+  adapter_use_layernorm: true
+  adapter_activation: gelu
+train:
+  peft_epochs: 15
+  batch_size: 96
+  optimizer: adamw
+  lr_head: 0.001
+  lr_peft: 0.001
+  weight_decay: 0.05
+  adamw_betas:
+  - 0.9
+  - 0.999
+  adamw_eps: 1.0e-08
+  scheduler: cosine
+  amp: false
+  grad_clip_norm: 1.0
+  loss: cross_entropy
+  label_smoothing: 0.0
+delta_interpolation:
+  enabled: true
+  alpha_candidates:
+  - 0.2
+  - 0.4
+  - 0.6
+  - 0.8
+  - 1.0
+  selection_rule: formal_alpha1_per_view_smallest_admissible
+  selection_reference: alpha1_validation_per_view
+  epsilon_pp: 0.5
+  strict_epsilon_pp: 0.3
+  heldout_interpolation: nearest
+metrics:
+  feature_layer: final_norm_tokens
+  spatial_size:
+  - 14
+  - 14
+  reference: frozen_backbone_same_interpolation
+  compute_lfer: true
+  compute_cka: true
+  compute_specdist: true
+  compute_high_specdist: true
+  freq_cutoff_ratio: 0.35
+protocol:
+  checkpoint_selection_rule: final_checkpoint_only_after_training
+  nearest_used_for_alpha_selection: 0
+  corruption_used_for_alpha_selection: 0
+  global_coefficient: true
